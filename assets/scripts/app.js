@@ -54,7 +54,13 @@ angular.module('ut99announcer', [])
 				{$id: 'cd3min',       name: '3 minutes remaining'},
 				{$id: 'cd5min',       name: '5 minutes remaining'},
 			],
-		];		
+		];
+		angular.forEach($scope.sounds, function (sound) {
+			angular.forEach(sound, function (clip) {
+				clip.$audio = new Audio('assets/audio/' + clip.$id + '.wav');
+				clip.$audio.preload = 'auto';
+			});
+		});
 		$scope.play = function (clip) {
 			clip.$audio = clip.$audio || new Audio('assets/audio/' + clip.$id + '.wav');
 			clip.$audio.play();

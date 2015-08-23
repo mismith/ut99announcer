@@ -2,7 +2,6 @@
 <html lang="en" ng-app="ut99announcer">
 <head>
 	<!-- base -->
-	<base href="/ut99announcer/" />
 	<meta charset="UTF-8" />
 	<title>UT99 Announcer</title><!-- 60 char max -->
 	
@@ -40,12 +39,15 @@
 </head>
 <body ng-controller="AppCtrl">
 	
-	<main id="main" class="flex-row flex">
-		<ul ng-repeat="sound in sounds" class="list-unstyled flex-column flex">
-			<li ng-repeat="clip in sound" class="flex-row flex">
-				<button ng-click="play(clip)" class="flex">{{ clip.name }}</button>
-			</li>
-		</ul>
+	<main id="main" class="flex-column flex">
+		<div class="flex-row flex">
+			<ul ng-repeat="sound in sounds" ng-show="showAll || $index < 2" class="list-unstyled flex-column flex">
+				<li ng-repeat="clip in sound" class="flex-row flex">
+					<button ng-click="play(clip)" class="flex">{{ clip.name }}</button>
+				</li>
+			</ul>
+		</div>
+		<button ng-click="showAll = ! showAll">Show {{ showAll ? 'Some' : 'All' }}</button>
 	</main>
 	
 	<!-- Scripts -->
