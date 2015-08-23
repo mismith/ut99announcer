@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="XXXXXX">
+<html lang="en" ng-app="ut99announcer">
 <head>
 	<!-- base -->
 	<base href="/" />
 	<meta charset="UTF-8" />
-	<title>XXXXXX</title><!-- 60 char max -->
+	<title>UT99 Announcer</title><!-- 60 char max -->
 	
 	<!-- mobile -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,30 +14,7 @@
 	<link rel="apple-touch-icon-precomposed" href="assets/img/touchicon.png" type="image/png" />
 	<link rel="shortcut icon" href="assets/img/touchicon.png" type="image/png" />
 	
-	<!-- search engines -->
-	<link rel="canonical" href="XXXXXX" />
-	<meta name="description" content="XXXXXX" /><!-- 160 char max -->
-	
-	<!-- facebook -->
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content="XXXXXX" />
-	<meta property="og:description" content="XXXXXX" />
-	<meta property="og:url" content="XXXXXX" />
-	<meta property="og:site_name" content="XXXXXX" />
-	<meta property="og:image" content="XXXXXX/assets/img/og_image.jpg" /><!--500px x 500px-->
-	<meta property="og:image" content="XXXXXX/assets/img/og_image_fb.jpg" /><!--1200px x 630px-->
-	
-	<!-- twitter -->
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:site" content="@XXXXXX" />
-	<meta name="twitter:title" content="XXXXXX" />
-	<meta name="twitter:description" content="XXXXXX" />
-	<meta name="twitter:image:src" content="XXXXXX/assets/img/og_image.jpg" />
-	
 	<!-- styles -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400" />
 	<link rel="stylesheet" href="assets/css/base.css" />
 	
 	<!-- analytics + compatibility -->
@@ -48,7 +25,7 @@
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-			ga('create', 'XXXXXX', 'auto');
+			ga('create', 'UA-66652971-1', 'auto');
 			ga('require', 'displayfeatures');
 			ga('send', 'pageview');
 			
@@ -61,27 +38,19 @@
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
 </head>
-<body ng-controller="AppCtrl" ng-click="$root.menu = false">
+<body ng-controller="AppCtrl">
 	
-	<div id="app" ui-view autoscroll="false">
-		<loader />
-	</div>
+	<main id="main" class="flex-row flex">
+		<ul ng-repeat="sound in sounds" class="list-unstyled flex-column flex">
+			<li ng-repeat="clip in sound" class="flex-row flex">
+				<button ng-click="play(clip)" class="flex">{{ clip.name }}</button>
+			</li>
+		</ul>
+	</main>
 	
 	<!-- Scripts -->
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.14/angular-ui-router.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-scroll/0.6.4/angular-scroll.min.js"></script>
 	
-	<script src="//cdn.firebase.com/js/client/2.2.3/firebase.js"></script>
-	<script src="//cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
-	<script src="//cdn.rawgit.com/mismith/angularfire-helper/2.0.2/angularfire-helper.min.js"></script>
-	
-	<script src="//cdn.rawgit.com/jvandemo/angular-contentful/v1.1.0/dist/angular-contentful.min.js"></script>
-	<script src="//cdn.rawgit.com/chjj/marked/v0.3.3/marked.min.js"></script>
-	<script src="//cdn.rawgit.com/Hypercubed/angular-marked/v0.0.12/angular-marked.min.js"></script>
-	
-	<script src="//cdn.rawgit.com/rodneyrehm/viewport-units-buggyfill/v0.5.3/viewport-units-buggyfill.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.3/fastclick.min.js"></script>
 	<script src="assets/js/base.min.js"></script>
 </body>

@@ -1,91 +1,43 @@
 // includes
 @import url("var.inc.less");
-@import url("glyph.inc.less");
 
 // tags
 body {
-	background: @lightest;
-	color: @darkest;
+	background: @darkest;
+	color: @lightest;
 	font: 300 16px/20px @font;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-weight: inherit;
-	text-transform: uppercase;
+
+.flex-row {
+	display: flex;
+	flex-direction: row;
+}
+.flex-column {
+	display: flex;
+	flex-direction: column;
+}
+.flex {
+	flex: 1;
 }
 
-// classes
-
-// sections
-#header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 50;
+#main {
+	min-height: 100%;
+}
+button {
+	-webkit-appearance: none;
+	background: none;
+	color: inherit;
+	font: inherit;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	outline: 0;
+	border-radius: 3px;
+	box-shadow: inset 0 0 0 1px #333;
 	
-	#nav {
-		.grid-table;
-		min-height: @hh;
-		
-		a {
-			color: inherit;
-			padding: 0 @u;
-		}
-		.logo {
-			width: 1%;
-		}
-		.separator {
-			width: 100%;
-		}
-		.handle {
-			display: none;
-			min-width: @hh;
-		}
-		#menu {
-			white-space: nowrap;
-			
-			a {
-				display: block;
-			}
-		}
-	}
-	+ * {
-		margin-top: @hh;
-	}
-	@media (max-width: @mobile) {
-		user-select: none;
-		
-		#nav {
-			padding-right: 0;
-			
-			.handle {
-				display: table-cell;
-			}
-			#menu {
-				.bg-lightest;
-				display: none;
-				position: fixed;
-				top: @hh;
-				right: 0;
-				padding: @u*2 0 @u*4;
-				overflow: auto;
-				
-				> * {
-					display: block;
-				}
-				a {
-					font-size: 1.2em;
-					padding: @u @u*4;
-				}
-				&.toggled {
-					display: block;
-				}
-			}
-		}
+	&:hover,
+	&:active {
+		background-color: @lighter;
+		color: @darker;
 	}
 }

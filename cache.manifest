@@ -1,0 +1,15 @@
+CACHE MANIFEST
+
+
+CACHE:
+assets/js/base.js
+assets/js/base.min.js
+assets/css/base.css
+assets/img/loading.gif
+assets/img/touchicon.png
+
+
+NETWORK:
+*
+
+# hash: 819813e6e281f5b228405a34b6301bc887f6c21366610a627d5972c0fac20ded
